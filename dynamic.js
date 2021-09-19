@@ -30,7 +30,7 @@ async function createDynamicMegamenu() {
             .reverse()
             .forEach(async (menuContentCategories, index) => {
                 let listCategory = document.createElement("li");
-                listCategory.className = "categoryItem enable";
+                listCategory.className = "category enable";
                 listCategory.setAttribute(
                     "id",
                     menuContentCategories.categoryMegaMenuId
@@ -87,7 +87,7 @@ async function createDynamicMegamenu() {
 
                 if (subCategoryRequest.length > 0) {
                     let subMenu = document.createElement("div");
-                    subMenu.className = "submenu-wrapper";
+                    subMenu.className = "submenu-wrapper disable";
                     subCategoryRequest
                         .reverse()
                         .forEach((subCategoryRequest) => {

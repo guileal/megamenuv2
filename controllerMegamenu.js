@@ -9,6 +9,6 @@ async function asyncExecute() {
         // console.error(e);
         //possible function return error handler
     } finally {
-        // controllMegamenuUI();
+        controlMegamenuUI();
     }
 }

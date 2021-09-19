@@ -190,7 +190,7 @@ header {
     z-index: 20;
     display: flex;
     align-items: flex-end;
-    height: 154px;
+    height: 180px;
     width: 100vw;
     max-width: 100%;
 
@@ -243,7 +243,7 @@ header {
 
 #megamenu-nav{
     z-index: 11;
-    height: 100%;
+    height: 80%;
 }
 
 #megamenu-nav #categories{
@@ -305,12 +305,14 @@ header {
     }
 
     #categories .category .title .chevron-title{
+        opacity: 0;
         margin-top: 10px;
         transform: rotate(180deg) translateY(0);
-        transition: transform .2s;
+        transition: transform .2s ease, opacity .2s ease;
     }
-
+    
     #categories .category .title:hover .chevron-title{
+        opacity: 1;
         transform: rotate(180deg)  translateY(-4px);
         transition: transform .4s;
         transition-delay: .2s;
