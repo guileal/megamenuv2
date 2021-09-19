@@ -3,6 +3,8 @@ function controlMegamenuUI() {
     const megaMenu = document.querySelector("#megamenu-wrapper");
     const openMegamenu = document.querySelectorAll(".open-megamenu"); //VARIAVEL QUE VAI CAPTURAR TODOS OS PONTOS DE ABERTURA DO MEGAMENU
     const closeMegamenu = document.querySelectorAll(".close-button");
+    const backButtonWrapper = document.querySelector('#back-wrapper')
+    const backButtonMegamenu = backButtonWrapper.querySelector('.back-button')
     // const rectIcon = openMegamenu.querySelectorAll("rect");
     
 
@@ -34,16 +36,35 @@ function controlMegamenuUI() {
     });
     
     
-    // OPEN SUBMENU HANDLER
+
+    //OPEN SUBMENU HANDLER
     for(var i = 0; i < menuItems.length; i++){
         menuItems[i].addEventListener("click", openSubmenu, false)
     }
 
 
+    //BACK BUTTON HANDLER
+    backButtonMegamenu.addEventListener("click", defaultMegamenu, false)
     
     
     //DEFAULT CONTROL -> valores padrões iniciais que rodam independente dos hadlers
     setDefaultBackground();
+}
+
+function defaultMegamenu(){
+    const categoriesWrapper = document.querySelector("#categories");
+    const menuItems = categoriesWrapper.querySelectorAll(".category");
+    const subMenus = categoriesWrapper.querySelectorAll(".submenu-wrapper");
+
+    menuItems.forEach((item) => {
+        item.classList.remove(`CLASS DISABLE FOR LI`);
+        item.classList.add(`CLASS ENABLE FOR LI`);
+    });
+    subMenus.forEach((item) => {
+        item.classList.remove(`CLASSE ATIVA PARA O SUBMENU`);
+    });
+
+
 }
 
 //revisar após adição das classes enable,disable, active e etc
