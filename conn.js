@@ -26,8 +26,7 @@ async function requestSubCategoriesMegamenu(idTaxonomy) {
         }
     );
 
-    const body = await response.json();
-    return body;
+    const body = await response
+    return body.json();
 }
-
 
