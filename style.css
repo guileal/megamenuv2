@@ -444,6 +444,7 @@ header {
     /* border: solid 10px red; */
     overflow: hidden !important;
     pointer-events: none;
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 #background-image .image-wrapper::after{

@@ -13,7 +13,6 @@ async function createDynamicMegamenu() {
             //set DEFAULT IMAGE
             item.slug = categoriesBody.slug;
             item.categoryMegaMenuId = categoriesBody.id;
-            // console.log(item);
             menuContentCategories.push(item);
         });
 
@@ -80,7 +79,6 @@ async function createDynamicMegamenu() {
                 categoryBackgroundWrapper.appendChild(categoryBackgroundImage);
                 navMegamenuBg.appendChild(categoryBackgroundWrapper);
                 
-                console.log(menuContentCategories.categoryMegaMenuId);
                 let subCategoryRequest = await requestSubCategoriesMegamenu(
                     menuContentCategories.categoryMegaMenuId
                 );
@@ -139,6 +137,7 @@ async function createDynamicMegamenu() {
                     listCategory.appendChild(subMenu);
                 }
             });
+            console.log('CONTEUDO DINAMICO CRIADO!');
     } catch (e) {
         console.error(`DEU ERRO -> ${e}`);
         //handler for error
@@ -171,5 +170,6 @@ async function createDynamicMegamenu() {
         });
 
         anchorMenu.appendChild(wrapper);
+        console.log('ERROR AO CRIAR O CONTEUDO DINAMICO FALLBACK RUN!');
     }
 }
