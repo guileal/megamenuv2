@@ -139,7 +139,6 @@ function changeBackgroundHover(nodeItem) {
     }
     const imagesBackground = document.querySelectorAll(".image-wrapper");
     const currentHover = nodeItem;
-    console.log(`ELEMENTO -> ${currentHover.querySelector("a").text.replace(/ /g, "-")}`);
     if(currentHover.querySelector("a")){
         const changedImage = document.querySelector(
             `#${currentHover.querySelector("a").text.replace(/ /g, "-")}`
