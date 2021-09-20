@@ -70,6 +70,7 @@ function defaultMegamenu(){
 function openSubmenu(event) {
     event.preventDefault();
     
+
     let clickedItem = event.currentTarget;
     const categoriesWrapper = document.querySelector("#categories");
     const menuItems = categoriesWrapper.querySelectorAll(".category");
