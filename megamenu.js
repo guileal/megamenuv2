@@ -70,16 +70,18 @@ function defaultMegamenu(){
 function openSubmenu(event) {
     event.preventDefault();
     
-    // if (!event.target.matches(".category")) {
-    //     return;
-    // }
-    let clickedItem = event.target;
+    let clickedItem = event.currentTarget;
     const categoriesWrapper = document.querySelector("#categories");
     const menuItems = categoriesWrapper.querySelectorAll(".category");
     const subMenus = categoriesWrapper.querySelectorAll(".submenu-wrapper");
-    console.log(clickedItem)
+
+    for(var i = 0; i < subMenus.length; i++){
+        subMenus[i].addEventListener('click', function(event){
+            event.stopPropagation();
+        })
+    }
     
-    console.log(clickedItem.querySelector(".submenu-wrapper"))
+    // console.log(clickedItem.querySelector(".submenu-wrapper"))
     if (clickedItem.querySelector(".submenu-wrapper")) {
         let submenuToActive = clickedItem.querySelector(".submenu-wrapper");
         let liToActive = submenuToActive.parentNode;
