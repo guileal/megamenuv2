@@ -73,7 +73,7 @@ function openSubmenu(event) {
     // if (!event.target.matches(".category")) {
     //     return;
     // }
-    let clickedItem = event.target;
+    let clickedItem = event.currentTarget;
     const categoriesWrapper = document.querySelector("#categories");
     const menuItems = categoriesWrapper.querySelectorAll(".category");
     const subMenus = categoriesWrapper.querySelectorAll(".submenu-wrapper");
