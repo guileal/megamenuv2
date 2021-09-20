@@ -36,13 +36,13 @@ function controlMegamenuUI() {
     });
     
     
-
+    
     //OPEN SUBMENU HANDLER
     for(var i = 0; i < menuItems.length; i++){
         menuItems[i].addEventListener("click", openSubmenu, false)
     }
-
-
+    
+    
     //BACK BUTTON HANDLER
     backButtonMegamenu.addEventListener("click", defaultMegamenu, false)
     
@@ -55,54 +55,55 @@ function defaultMegamenu(){
     const categoriesWrapper = document.querySelector("#categories");
     const menuItems = categoriesWrapper.querySelectorAll(".category");
     const subMenus = categoriesWrapper.querySelectorAll(".submenu-wrapper");
-
+    
     menuItems.forEach((item) => {
-        item.classList.remove(`CLASS DISABLE FOR LI`);
-        item.classList.add(`CLASS ENABLE FOR LI`);
+        item.classList.remove("disable");
+        item.classList.add("enable");
     });
     subMenus.forEach((item) => {
-        item.classList.remove(`CLASSE ATIVA PARA O SUBMENU`);
+        item.classList.remove("submenu-wrapper-active");
     });
-
-
+    
+    
 }
-
-//revisar após adição das classes enable,disable, active e etc
+//revisar após adição das classes enable,disable,-  active e etc
 function openSubmenu(event) {
     event.preventDefault();
-    if (!event.target.matches(".category")) {
-        return;
-    }
+    
+    // if (!event.target.matches(".category")) {
+    //     return;
+    // }
     let clickedItem = event.target;
     const categoriesWrapper = document.querySelector("#categories");
     const menuItems = categoriesWrapper.querySelectorAll(".category");
     const subMenus = categoriesWrapper.querySelectorAll(".submenu-wrapper");
-
+    console.log(clickedItem)
+    
+    console.log(clickedItem.querySelector(".submenu-wrapper"))
     if (clickedItem.querySelector(".submenu-wrapper")) {
         let submenuToActive = clickedItem.querySelector(".submenu-wrapper");
         let liToActive = submenuToActive.parentNode;
-        if (submenuToActive.classList.contains(`CLASSE ATIVA PARA O SUBMENU`)) {
+        if (submenuToActive.classList.contains("submenu-wrapper-active")) {
             menuItems.forEach((item) => {
-                item.classList.remove(`CLASS DISABLE FOR LI`);
-                item.classList.add(`CLASS ENABLE FOR LI`);
+                item.classList.remove("disable");
+                item.classList.add("enable");
             });
             subMenus.forEach((item) => {
-                item.classList.remove(`CLASSE ATIVA PARA O SUBMENU`);
+                item.classList.remove("submenu-wrapper-active");
             });
         } else {
             //zerando por padrao todos os itens
             menuItems.forEach((item) => {
-                item.classList.remove(`CLASS ENABLE FOR LI`);
-                item.classList.add(`CLASS DISABLE FOR LI`);
+                item.classList.remove("enable");
+                item.classList.add("disable");
             });
             subMenus.forEach((item) => {
-                item.classList.remove(`CLASSE ATIVA PARA O SUBMENU`);
+                item.classList.remove("submenu-wrapper-active");
             });
 
-            liToActive.classList.remove(`CLASS DISABLE FOR LI`);
-            liToActive.classList.add(`CLASS ENABLE FOR LI`);
-            submenuToActive.classList.add(`CLASSE ATIVA PARA O SUBMENU`);
-
+            liToActive.classList.remove("disable");
+            liToActive.classList.add("enable");
+            submenuToActive.classList.add("submenu-wrapper-active"); 
         }
     }
 }
@@ -117,10 +118,9 @@ function hoverElement(element) {
             changeBackgroundHover(event.currentTarget);
         }
         if (event.type == "mouseout") {
-            if (element.tagName == "LI") {
                 if (element.querySelector("submenu-wrapper")) {
                     let flag = element.querySelector("submenu-wrapper");
-                    if (flag.classList.contains(`CLASSE ATIVA PARA O SUBMENU`)) {
+                    if (flag.classList.contains("submenu-wrapper-active")) {
                         return
                     } else {
                         setDefaultBackground();
@@ -128,7 +128,7 @@ function hoverElement(element) {
                 } else {
                     setDefaultBackground();
                 }
-            }
+            
         }
     }
 }

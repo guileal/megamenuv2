@@ -85,7 +85,7 @@ async function createDynamicMegamenu() {
 
                 if (subCategoryRequest.length > 0) {
                     let subMenu = document.createElement("div");
-                    subMenu.className = "submenu-wrapper disable";
+                    subMenu.className = "submenu-wrapper";
                     subCategoryRequest
                         .reverse()
                         .forEach((subCategoryRequest) => {
