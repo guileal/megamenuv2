@@ -93,6 +93,7 @@ function openSubmenu(event) {
             });
             subMenus.forEach((item) => {
                 item.classList.remove("submenu-wrapper-active");
+                categoriesWrapper.style.gap = '3vh' ;
             });
         } else {
             //zerando por padrao todos os itens
@@ -106,7 +107,8 @@ function openSubmenu(event) {
 
             liToActive.classList.remove("disable");
             liToActive.classList.add("enable");
-            submenuToActive.classList.add("submenu-wrapper-active"); 
+            submenuToActive.classList.add("submenu-wrapper-active");
+            categoriesWrapper.style.gap = '0' ;
         }
     }
 }

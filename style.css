@@ -71,7 +71,7 @@ body {
     /* position: relative; */
 }
 
-header {
+/* header {
     width: 100vw;
     height: 210px;
     padding: 2rem;
@@ -83,7 +83,7 @@ header {
     justify-content: space-between;
     align-items: flex-start;
     z-index: 2;
-}
+} */
 
 /* ^^^^ ignorar */
 
@@ -266,11 +266,17 @@ header {
         z-index: 20;
         display: flex;
         align-items: center;
-        flex-wrap:wrap;
-        font-size: clamp(2.4rem, 6vw, 7rem);
+        flex-wrap:nowrap;
+        font-size: clamp(5rem, 4vw, 6.2rem);
         transform-origin: left;
         transition: transform .2s ease;
         /* transition: all .3s ease; */
+    }
+
+    #categories .category .title img{
+        display: flex;
+        flex-shrink: 5;
+        max-width: 100%;
     }
     #categories .category .title:hover{
         transition: transform .2s ease;
@@ -326,6 +332,13 @@ header {
         transform: translateX(150%);
         /* transition: all 20s ease; */
         transition: max-height .2s ease, transform 4s ease-in-out , opacity .5s ease, padding .6s ease;
+
+        scrollbar-width: none;
+    }
+
+    .submenu-wrapper::-webkit-scrollbar{
+        margin-left: 50px;
+        display:none;
     }
 
     #categories .category .submenu-wrapper-active{
@@ -497,7 +510,9 @@ header {
     background-color: red;
     width: 100%;
 } */
-.megamenu .back-button2 img{
+
+.back-button2 img{
+    /* width:100%; */
     margin-right: 1rem;
 }
 
@@ -509,20 +524,33 @@ header {
     :root {
         font-size: 6px;
     }
-
     /* NAV MOBILE HEADER */
     #nav-header-mobile{
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100vw;
-        max-width: none;
+        max-width: 100%;
         height: 70px;
         z-index: 20;
-        margin-left: -4rem;
-        /* margin: 0 -8rem; */
+        /* margin-left: rem; */
     }
 
+    #nav-header-mobile span{
+        font-size: 15px;
+        color: var(--e-global-color-5c24791);
+        font-family:var(--e-global-typography-primary-font-family), sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+
+    }
+
+    #nav-header-mobile #nav-close-menu{
+        filter: brightness(0.25) !important;
+    }
     #back-wrapper{
         display: none;
+        filter: brightness(0.3) !important;
     }
 
     #nav-header-mobile .nav-logo-mobile{
@@ -554,7 +582,34 @@ header {
         /* object-fit: cover; */
     }
     
-    #background-image::after{
+    #megamenu-nav:before{
+        content: '';
+        width: 100vw;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        background: rgb(216,163,205);
+        background: linear-gradient(0deg, 
+        rgba(216,163,205,0) 40%, 
+        rgba(216,163,205,1) 80%);
+        margin-left: -4rem;
+        z-index: 21;
+        pointer-events: none;
+    }
+
+    #megamenu-nav:after{
+        content: '';
+        width: 100vw;
+        height: 200px;
+        position: absolute;
+        bottom: 0;
+        background: rgb(216,163,205);
+        background: linear-gradient(190deg, 
+        rgba(216,163,205,0) 0%, 
+        rgba(216,163,205,1) 93%);
+        margin-left: -4rem;
+        z-index: 21;
+        pointer-events: none;
     }
 
     /* MEGAMENU WRAPPER */
@@ -562,10 +617,25 @@ header {
     #megamenu-wrapper{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         height: calc(100vh - 125px);
         width: 100vw;
         z-index: 20;
+        transform: translateY(7vh);
+    }
+
+    #megamenu-wrapper:after{
+        position: absolute;
+        bottom: 50px;
+        left:0;
+        width: 100vw;
+        height: 100px;
+        background: rgb(216,163,205);
+        background: linear-gradient(90deg, rgba(216,163,205,0) 0%, rgba(216,163,205,1) 100%);
+    }
+
+    #megamenu-wrapper #megamenu-nav{
+        height: auto;
     }
 
     #megamenu-nav #categories{
@@ -581,6 +651,7 @@ header {
     #categories .category .title{
         flex-wrap: nowrap;
         justify-content: space-between;
+        z-index: 22;
     }
     
     #categories .category .title-active{
